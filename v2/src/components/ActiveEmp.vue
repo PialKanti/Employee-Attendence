@@ -1,6 +1,6 @@
 <template>
     <div class="col-md-6">
-        <h4>At office(1)</h4>
+        <h4>At office({{active}})</h4>
         <hr>
         <!-- <p>No Employee in office</p> -->
         <table class="table table-striped">
@@ -11,9 +11,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>7007</td>
-                    <td>Pial Kanti</td>
+                <tr v-for="employee in empList" v-if="employee.status">
+                    <td>{{ employee.id }}</td>
+                    <td>{{ employee.name }}</td>
                 </tr>
             </tbody>
         </table>
@@ -21,7 +21,7 @@
 </template>
 <script>
 export default {
-  
+    props: ['empList','active']
 }
 </script>
 <style>
